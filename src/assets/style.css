@@ -1,0 +1,247 @@
+/* === 字型 === */
+@import url("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
+@import url("https://fonts.googleapis.com/css?family=Baloo+Tamma+2:600,700");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Noto Sans TC", sans-serif;
+  background: linear-gradient(
+    174deg,
+    #ffd370 2%,
+    #ffd370 46%,
+    #ffffff 46%,
+    #ffffff 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #333;
+  letter-spacing: 0.07em;
+}
+
+/* === 標題 === */
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-family: "Baloo Tamma 2", sans-serif;
+  letter-spacing: 0.5rem;
+  font-weight: bold;
+}
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* === 容器 === */
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* === 卡片統一樣式 === */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* === 輸入區塊 === */
+.card.input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #333;
+}
+
+.btn_add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #333;
+  color: #fff;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* === 任務列表卡片 === */
+.card_list {
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* === Tabs === */
+.tab {
+  display: flex;
+  justify-content: space-between;
+  color: #9f9a91;
+  font-size: 14px;
+  border-bottom: 2px solid #efefef;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+}
+
+.tab li {
+  flex: 1;
+  text-align: center;
+  padding: 1rem 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab li.active {
+  color: #333;
+  font-weight: bold;
+}
+
+.tab li.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  border-bottom: 2px solid #333;
+}
+
+/* === 任務內容區 === */
+.cart_content {
+  padding: 0.5rem 1rem 1rem 1rem;
+}
+
+/* === 任務清單 === */
+.list li {
+  position: relative;
+  padding-right: 2rem;
+}
+
+.list li a.delete {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: none;
+  color: #333;
+  width: 1rem;
+  height: 1rem;
+  background-image: url("https://i.imgur.com/7Q4RjFx.jpg");
+  background-size: contain;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.list li:hover a.delete {
+  opacity: 1;
+}
+
+/* === Footer === */
+.list_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 1rem 0.5rem 0 0.5rem;
+}
+
+/* === 自訂 Checkbox === */
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 44px;
+  cursor: pointer;
+}
+
+.checkbox span {
+  display: block;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  line-height: 1.5;
+}
+
+.checkbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.checkbox span::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  transition: 0.3s ease;
+}
+
+.checkbox span::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 27%;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 0.5rem;
+  border-bottom: 3px solid #ffd370;
+  border-right: 3px solid #ffd370;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.checkbox input:checked ~ span {
+  color: #9f9a91;
+  text-decoration: line-through;
+}
+
+.checkbox input:checked ~ span::before {
+  border-color: transparent;
+  transform: translateY(-50%) scale(0);
+}
+
+.checkbox input:checked ~ span::after {
+  opacity: 1;
+}
